@@ -16,7 +16,9 @@ describe('for event', () => {
 
     // <--start
     // Please add the event listener to handle `click` event on `element`.
-
+    element.addListener('click', onClick, false);
+    // 3个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。
+    // 最后一个布尔值参数如果是true，表示在事件捕获阶段调用事件处理程序；如果是false，表示在事件冒泡阶段调用事件处理程序。
     // --end->
 
     element.emit('click');
@@ -34,7 +36,7 @@ describe('for event', () => {
       .then(() => {
         // <--start
         // Please write down the correct value. You should write the final result directly.
-        const expected = undefined;
+        const expected = ['I have been clicked', 'I have been clicked'];
         // --end->
 
         expect(logs).toEqual(expected);
@@ -57,7 +59,7 @@ describe('for event', () => {
       .then(() => {
         // <--start
         // Please write down the correct value. You should write the final result directly.
-        const expected = undefined;
+        const expected = ['I have been clicked'];
         // --end->
 
         expect(logs).toEqual(expected);
